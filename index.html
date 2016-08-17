@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="领礼包,混公会,实时语音,开黑组团神器"/>
+    <meta name="description" content="这是一款专为手游玩家设计的，集混公会和即时语音聊天为一体的游戏社交App。独创【语音球】让你不用跳出游戏，即可联系公会好友，网罗最热门手游，最强战力公会，更有游戏圈子让你秀心得、炫战力、邂逅女神、结交同游玩伴助你手游之路不再孤单。"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>TT语音、领礼包、混公会、实时语音、开黑组团神器</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style type="text/css">
+        .page-content{
+            padding-bottom:72px;
+        }
+    </style>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://app.52tt.com/assets/images/touch-icon.png">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?86320a5d4f91657c8c684c082ddb8079";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="statusbar-overlay"></div>
+<div class="views">
+    <div class="view view-main">
+        <div class="pages">
+            <noscript><div class="no-js-tips">Javascript被系统禁用，导致无法正常访问，请检查浏览器设置！</div></noscript>
+            <div id="activity-schedule" class="page">
+                <div class="page-content">
+                    <p><img  src="./assets/img/yttlj1.jpg"></p>
+
+                        <div class="buttons-row">
+                            <a href="#tab1" class="tab-link button active">
+                                <div class="button-name">福利活动</div>
+                            </a>
+                            <a href="#tab2" class="tab-link last-button button">
+                                <div class="button-name">获奖名单</div>
+                            </a>
+                        </div>
+
+
+                    <div class="activity-content tabs">
+                        <div id="tab1" class="tab active">
+                            <p><span class="download-tt"><a href="tt://navigation/topic/605/845"><img src="./assets/img/link1.jpg"></a></span>></p>
+                            <p><a href="tt://navigation/gamearea/295519"><img src="./assets/img/link2.jpg"></a></p>
+                        </div>
+                        <div id="tab2" class="tab">
+                            <p>暂无获奖信息</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="toolbar activity-download">
+                        <iframe src="http://app.52tt.com/project/game_zone/game_download.html?gid=295165" id="iframe" frameborder="0" scrolling="no" width="100%" height="72" style="height: 72px;"></iframe>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript" src="http://cdn.52tt.com/m/pubilc/js/framework.min.js"></script>
+<script>
+    function func(){
+        $$('.activity-content a').addClass("external");
+
+        //内部链接替换为外部链接
+        if( myWebview.isInAppFunc() === false){
+            var link1 = "http://app.52tt.com/p/circle/xxx1/topic/xxx2";
+            var strArr1 = [];
+            var strArr1 = link1.split("/");
+
+            var zoneLink1 = "http://app.52tt.com/project/game_zone/index.html?gid=";
+
+            $$('.activity-content a').each(function(){
+                var link2 = $$(this).attr('href');
+
+                //TT圈子链接转换
+                if( link2.indexOf("navigation/topic") > 0 ){
+                    console.log('内部链接');
+
+                    var strArr2 = []; //定义一数组
+                    strArr2 = link2.split("/"); //字符分割
+
+                    strArr1[5] = strArr2[4];
+                    strArr1[7] = strArr2[5];
+
+                    var link3 = strArr1.join("/");
+                    $$(this).attr('href',link3);
+                }
+
+                //TT游戏专区链接转换
+                if( link2.indexOf("navigation/gamearea") > 0 ){
+                    console.log('内部链接');
+
+                    var strArr2 = []; //定义一数组
+                    strArr2 = link2.split("/"); //字符分割
+
+                    var gameId = strArr2[4];
+
+                    var link3 = '' + zoneLink1 + gameId;
+                    $$(this).attr('href',link3);
+                }
+            });
+
+            $$('.download-tt a').each(function(){
+                $$(this).attr('href','#').on('click',function(){
+                    myApp.downloadTT(true);
+                });
+            });
+
+        }
+    }
+
+/*
+ * 原生JS实现 document.ready()代码:
+ * 传递函数给whenReady()
+ * 当文档解析完毕且为操作准备就绪时，函数作为document的方法调用
+ */
+var whenReady = (function() {               //这个函数返回whenReady()函数
+    var funcs = [];             //当获得事件时，要运行的函数
+    var ready = false;          //当触发事件处理程序时,切换为true
+
+    //当文档就绪时,调用事件处理程序
+    function handler(e) {
+        if(ready) return;       //确保事件处理程序只完整运行一次
+
+        //如果发生onreadystatechange事件，但其状态不是complete的话,那么文档尚未准备好
+        if(e.type === 'onreadystatechange' && document.readyState !== 'complete') {
+            return;
+        }
+
+        //运行所有注册函数
+        //注意每次都要计算funcs.length
+        //以防这些函数的调用可能会导致注册更多的函数
+        for(var i=0; i<funcs.length; i++) {
+            funcs[i].call(document);
+        }
+        //事件处理函数完整执行,切换ready状态, 并移除所有函数
+        ready = true;
+        funcs = null;
+    }
+    //为接收到的任何事件注册处理程序
+    if(document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', handler, false);
+        document.addEventListener('readystatechange', handler, false);            //IE9+
+        window.addEventListener('load', handler, false);
+    }else if(document.attachEvent) {
+        document.attachEvent('onreadystatechange', handler);
+        window.attachEvent('onload', handler);
+    }
+    //返回whenReady()函数
+    return function whenReady(fn) {
+        if(ready) { fn.call(document); }
+        else { funcs.push(fn); }
+    }
+})();
+
+//DOM加载完毕，执行标签操作
+whenReady(func);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+@import url('framework.less');
+
+//code
+html, body{
+  line-height: 1.4;
+  font-weight: normal;
+}
+
+html, body, div, p, ul, ol, li, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  width: 100%;
+  //max-width: 100%;
+  margin: 0 auto;
+  text-align:center;
+}
+
+a{
+  color: inherit;
+}
+
+img {
+  vertical-align: middle;
+}
+
+//无javascript环境
+.no-js-tips{
+  display: block;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: @size-T4;
+  color: @color-Ca3;
+  margin-top: 88px;
+}
+
+/*CMS活动日程页，带TAB*/
+#activity-schedule{
+  position:relative;
+  background-color:#fff;
+  max-width:100%;
+  text-align:center;
+  .page-content {
+  }
+  a{
+    display:block;
+    box-sizing: border-box;
+  }
+  p{
+    font-size:16px;
+    color: #868686;
+    img{
+      width: 100%;
+      height:auto;
+    }
+  }
+  img{
+    max-width: 100%;
+    height:auto;
+    border:none;
+  }
+  .buttons-row{
+    border-bottom:1px solid #343A46;
+  }
+  .button{
+    height:44px;
+    line-height: 44px;
+    border:none;
+    color: #F3F3F3;
+    font-size:18px;
+    font-weight:500;
+    background: #343A46;
+    overflow: hidden;
+  }
+  .button-name{
+    padding-bottom: 3px;
+    display:inline;
+  }
+  .button.active{
+    color: #FA2E73;
+    .button-name{
+      border-bottom: 1px solid #FA2E73;
+    }
+  }
+  .last-button:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 10px;
+    width: 1px;
+    height: auto;
+    background-color: #ACACAC;
+  }
+  .buttons-row .button:first-child {
+    border-radius: 0;
+  }
+  .buttons-row .button:last-child {
+    border-radius: 0;
+  }
+
+  //活动页下载按钮
+  .activity-download{
+    height:72px;
+  }
+}
